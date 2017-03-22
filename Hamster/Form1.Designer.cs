@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.scoreboard = new System.Windows.Forms.ListView();
+            this.scoreboardName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.scoreboardPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.startButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.scoreStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.scoreboard = new System.Windows.Forms.ListView();
-            this.scoreboardName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.scoreboardPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +76,30 @@
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 0;
             // 
+            // scoreboard
+            // 
+            this.scoreboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scoreboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.scoreboardName,
+            this.scoreboardPoints});
+            this.scoreboard.GridLines = true;
+            this.scoreboard.Location = new System.Drawing.Point(-1, 101);
+            this.scoreboard.Name = "scoreboard";
+            this.scoreboard.Size = new System.Drawing.Size(179, 214);
+            this.scoreboard.TabIndex = 6;
+            this.scoreboard.UseCompatibleStateImageBehavior = false;
+            this.scoreboard.View = System.Windows.Forms.View.Details;
+            // 
+            // scoreboardName
+            // 
+            this.scoreboardName.Text = "Name";
+            // 
+            // scoreboardPoints
+            // 
+            this.scoreboardPoints.Text = "Points";
+            // 
             // statusStrip2
             // 
             this.statusStrip2.Location = new System.Drawing.Point(0, 317);
@@ -109,12 +133,13 @@
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.Location = new System.Drawing.Point(16, 30);
+            this.trackBar1.Location = new System.Drawing.Point(11, 30);
             this.trackBar1.Maximum = 1000;
             this.trackBar1.Minimum = 10;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(148, 45);
+            this.trackBar1.Size = new System.Drawing.Size(164, 45);
             this.trackBar1.TabIndex = 1;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Value = 500;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
@@ -146,7 +171,7 @@
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.gameTable.Size = new System.Drawing.Size(295, 315);
+            this.gameTable.Size = new System.Drawing.Size(289, 315);
             this.gameTable.TabIndex = 0;
             // 
             // gameTimer
@@ -168,29 +193,6 @@
             this.scoreStatus.Name = "scoreStatus";
             this.scoreStatus.Size = new System.Drawing.Size(48, 17);
             this.scoreStatus.Text = "Score: 0";
-            // 
-            // scoreboard
-            // 
-            this.scoreboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.scoreboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.scoreboardName,
-            this.scoreboardPoints});
-            this.scoreboard.Location = new System.Drawing.Point(-1, 101);
-            this.scoreboard.Name = "scoreboard";
-            this.scoreboard.Size = new System.Drawing.Size(179, 214);
-            this.scoreboard.TabIndex = 6;
-            this.scoreboard.UseCompatibleStateImageBehavior = false;
-            this.scoreboard.View = System.Windows.Forms.View.Details;
-            // 
-            // scoreboardName
-            // 
-            this.scoreboardName.Text = "Name";
-            // 
-            // scoreboardPoints
-            // 
-            this.scoreboardPoints.Text = "Points";
             // 
             // HamsterGame
             // 

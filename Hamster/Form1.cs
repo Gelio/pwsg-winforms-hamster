@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Hamster
 {
-    public partial class Form1 : Form
+    public partial class HamsterGame : Form
     {
         private int pointsPerHit = 50;
         private int pointsPerMiss = -100;
@@ -25,7 +25,7 @@ namespace Hamster
         private List<Button> activeButtons;
         private Settings settings;
 
-        public Form1()
+        public HamsterGame()
         {
             settings = new Settings(rows, columns, maxActiveButtons, maxClicks);
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Hamster
             GenerateGameTable();
             UpdateTimerInterval();
             UpdateScore();
+            LoadScoreboard();
         }
 
         private void GenerateGameTable()
@@ -74,6 +75,7 @@ namespace Hamster
             if (!gameTimer.Enabled)
                 return;
 
+            currentClicks++;
             Button button = sender as Button;
             if (activeButtons.Contains(button))
             {
@@ -89,6 +91,14 @@ namespace Hamster
                 scoreStatus.BackColor = Color.Red;
             }
             UpdateScore();
+
+            if (currentClicks >= maxClicks)
+                GameOver();
+        }
+
+        public void GameOver()
+        {
+
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)

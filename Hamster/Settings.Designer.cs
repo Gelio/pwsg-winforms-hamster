@@ -142,6 +142,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.Shown += new System.EventHandler(this.Settings_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Settings_KeyDown);

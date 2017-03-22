@@ -1,6 +1,6 @@
 ﻿namespace Hamster
 {
-    partial class Form1
+    partial class HamsterGame
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.startButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -38,6 +39,9 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.scoreStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.scoreboard = new System.Windows.Forms.ListView();
+            this.scoreboardName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.scoreboardPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +60,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.scoreboard);
+            this.splitContainer1.Panel1.Controls.Add(this.statusStrip2);
             this.splitContainer1.Panel1.Controls.Add(this.startButton);
             this.splitContainer1.Panel1.Controls.Add(this.settingsButton);
             this.splitContainer1.Panel1.Controls.Add(this.trackBar1);
@@ -69,6 +75,14 @@
             this.splitContainer1.SplitterDistance = 180;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Location = new System.Drawing.Point(0, 317);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(178, 22);
+            this.statusStrip2.TabIndex = 5;
+            this.statusStrip2.Text = "statusStrip2";
             // 
             // startButton
             // 
@@ -132,7 +146,7 @@
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.gameTable.Size = new System.Drawing.Size(301, 315);
+            this.gameTable.Size = new System.Drawing.Size(295, 315);
             this.gameTable.TabIndex = 0;
             // 
             // gameTimer
@@ -152,10 +166,33 @@
             // scoreStatus
             // 
             this.scoreStatus.Name = "scoreStatus";
-            this.scoreStatus.Size = new System.Drawing.Size(118, 17);
-            this.scoreStatus.Text = "toolStripStatusLabel1";
+            this.scoreStatus.Size = new System.Drawing.Size(48, 17);
+            this.scoreStatus.Text = "Score: 0";
             // 
-            // Form1
+            // scoreboard
+            // 
+            this.scoreboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.scoreboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.scoreboardName,
+            this.scoreboardPoints});
+            this.scoreboard.Location = new System.Drawing.Point(-1, 101);
+            this.scoreboard.Name = "scoreboard";
+            this.scoreboard.Size = new System.Drawing.Size(179, 214);
+            this.scoreboard.TabIndex = 6;
+            this.scoreboard.UseCompatibleStateImageBehavior = false;
+            this.scoreboard.View = System.Windows.Forms.View.Details;
+            // 
+            // scoreboardName
+            // 
+            this.scoreboardName.Text = "Name";
+            // 
+            // scoreboardPoints
+            // 
+            this.scoreboardPoints.Text = "Points";
+            // 
+            // HamsterGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,7 +200,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(300, 300);
-            this.Name = "Form1";
+            this.Name = "HamsterGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hamster Game";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -191,6 +228,10 @@
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel scoreStatus;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ListView scoreboard;
+        private System.Windows.Forms.ColumnHeader scoreboardName;
+        private System.Windows.Forms.ColumnHeader scoreboardPoints;
     }
 }
 

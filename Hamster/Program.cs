@@ -16,7 +16,19 @@ namespace Hamster
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new HamsterGame());
+        }
+    }
+
+    public class ScoreboardRow
+    {
+        public string Name { get; set; }
+        public int Points { get; set; }
+
+        public ScoreboardRow(string name, int points)
+        {
+            Name = name;
+            Points = points;
         }
     }
 }

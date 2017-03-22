@@ -39,7 +39,7 @@ namespace Hamster
             GenerateGameTable();
             UpdateTimerInterval();
             UpdateScore();
-            LoadScoreboard();
+            LoadScoreboardFromFile();
         }
 
         private void GenerateGameTable()
@@ -98,7 +98,21 @@ namespace Hamster
 
         public void GameOver()
         {
+            PauseGame();
 
+            GameOver gameOverScreen = new Hamster.GameOver();
+            gameOverScreen.playerScore.Text = score.ToString();
+            gameOverScreen.ShowDialog();
+
+            if (gameOverScreen.DialogResult == DialogResult.OK)
+            {
+                string playerName = gameOverScreen.playerName.Text;
+                scoreboardRows.Add(new ScoreboardRow(playerName, score));
+                LoadScoreboard();
+                SaveScoreboardToFile();
+            }
+
+            RestartGame();
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -133,13 +147,9 @@ namespace Hamster
         private void SetButtonState(Button button, bool isActive)
         {
             if (isActive)
-            {
                 button.BackColor = Color.Blue;
-            }
             else
-            {
                 button.BackColor = DefaultBackColor;
-            }
         }
 
         private void SetButtonState(int row, int column, bool isActive)
@@ -167,6 +177,7 @@ namespace Hamster
             if (settings.DialogResult == DialogResult.Cancel)
                 return;
 
+            ReloadSettings();
             RestartGame();
         }
 
@@ -184,6 +195,7 @@ namespace Hamster
             score = 0;
             UpdateScore();
             currentClicks = 0;
+            scoreStatus.BackColor = DefaultBackColor;
             GenerateGameTable();
         }
 

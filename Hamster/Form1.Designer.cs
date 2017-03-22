@@ -33,6 +33,8 @@
             this.scoreboard = new System.Windows.Forms.ListView();
             this.scoreboardName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.scoreboardPoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.scoreboardMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearScoreboard = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.startButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
@@ -42,15 +44,15 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.scoreStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.scoreboardMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearScoreboard = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.scoreboardMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.scoreboardMenuStrip.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -63,10 +65,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel1.Controls.Add(this.scoreboard);
             this.splitContainer1.Panel1.Controls.Add(this.statusStrip2);
-            this.splitContainer1.Panel1.Controls.Add(this.startButton);
-            this.splitContainer1.Panel1.Controls.Add(this.settingsButton);
             this.splitContainer1.Panel1.Controls.Add(this.trackBar1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1MinSize = 100;
@@ -104,6 +105,20 @@
             // 
             this.scoreboardPoints.Text = "Points";
             // 
+            // scoreboardMenuStrip
+            // 
+            this.scoreboardMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearScoreboard});
+            this.scoreboardMenuStrip.Name = "scoreboardMenuStrip";
+            this.scoreboardMenuStrip.Size = new System.Drawing.Size(102, 26);
+            // 
+            // clearScoreboard
+            // 
+            this.clearScoreboard.Name = "clearScoreboard";
+            this.clearScoreboard.Size = new System.Drawing.Size(101, 22);
+            this.clearScoreboard.Text = "Clear";
+            this.clearScoreboard.Click += new System.EventHandler(this.clearScoreboard_Click);
+            // 
             // statusStrip2
             // 
             this.statusStrip2.Location = new System.Drawing.Point(0, 317);
@@ -114,9 +129,10 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(11, 72);
+            this.startButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startButton.Location = new System.Drawing.Point(3, 3);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(73, 23);
+            this.startButton.Size = new System.Drawing.Size(83, 24);
             this.startButton.TabIndex = 3;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
@@ -124,10 +140,10 @@
             // 
             // settingsButton
             // 
-            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsButton.Location = new System.Drawing.Point(100, 72);
+            this.settingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsButton.Location = new System.Drawing.Point(92, 3);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(75, 23);
+            this.settingsButton.Size = new System.Drawing.Size(84, 24);
             this.settingsButton.TabIndex = 2;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
@@ -175,7 +191,7 @@
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.gameTable.Size = new System.Drawing.Size(289, 315);
+            this.gameTable.Size = new System.Drawing.Size(283, 315);
             this.gameTable.TabIndex = 0;
             // 
             // gameTimer
@@ -198,19 +214,21 @@
             this.scoreStatus.Size = new System.Drawing.Size(48, 17);
             this.scoreStatus.Text = "Score: 0";
             // 
-            // scoreboardMenuStrip
+            // tableLayoutPanel1
             // 
-            this.scoreboardMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearScoreboard});
-            this.scoreboardMenuStrip.Name = "scoreboardMenuStrip";
-            this.scoreboardMenuStrip.Size = new System.Drawing.Size(153, 48);
-            // 
-            // clearScoreboard
-            // 
-            this.clearScoreboard.Name = "clearScoreboard";
-            this.clearScoreboard.Size = new System.Drawing.Size(152, 22);
-            this.clearScoreboard.Text = "Clear";
-            this.clearScoreboard.Click += new System.EventHandler(this.clearScoreboard_Click);
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.startButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.settingsButton, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 62);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(179, 30);
+            this.tableLayoutPanel1.TabIndex = 7;
             // 
             // HamsterGame
             // 
@@ -229,10 +247,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.scoreboardMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.scoreboardMenuStrip.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +274,7 @@
         private System.Windows.Forms.ColumnHeader scoreboardPoints;
         private System.Windows.Forms.ContextMenuStrip scoreboardMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem clearScoreboard;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

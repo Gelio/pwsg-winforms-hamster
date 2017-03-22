@@ -12,6 +12,10 @@ namespace Hamster
 {
     public partial class Form1 : Form
     {
+        private int pointsPerHit = 50;
+        private int pointsPerMiss = -100;
+
+
         private int rows = 4;
         private int columns = 4;
         private int maxActiveButtons = 5;
@@ -32,13 +36,12 @@ namespace Hamster
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GenerateGame();
-            activeButtons = new List<Button>();
+            GenerateGameTable();
             UpdateTimerInterval();
             UpdateScore();
         }
 
-        private void GenerateGame()
+        private void GenerateGameTable()
         {
             float columnWidth = 100 / columns;
             float rowHeight = 100 / rows;
@@ -62,6 +65,8 @@ namespace Hamster
                     currentButton.Click += CurrentButton_Click;
                     gameTable.Controls.Add(currentButton, column, row);
                 }
+
+            activeButtons = new List<Button>();
         }
 
         private void CurrentButton_Click(object sender, EventArgs e)
@@ -72,16 +77,16 @@ namespace Hamster
             Button button = sender as Button;
             if (activeButtons.Contains(button))
             {
-                // Deactivate
+                // Hit!
                 activeButtons.Remove(button);
                 SetButtonState(button, false);
-                score += 50;
+                score += pointsPerHit;
+                scoreStatus.BackColor = DefaultBackColor;
             }
             else
             {
-                score -= 100;
-                if (score < 0)
-                    score = 0;
+                score += pointsPerMiss;
+                scoreStatus.BackColor = Color.Red;
             }
             UpdateScore();
         }
@@ -152,16 +157,24 @@ namespace Hamster
             if (settings.DialogResult == DialogResult.Cancel)
                 return;
 
-            PauseGame();
-            score = 0;
+            RestartGame();
+        }
+
+        private void ReloadSettings()
+        {
             rows = settings.rows;
             columns = settings.columns;
             maxActiveButtons = settings.maxActiveButtons;
             maxClicks = settings.maxClicks;
-            currentClicks = 0;
-            activeButtons = new List<Button>();
-            GenerateGame();
+        }
+
+        private void RestartGame()
+        {
+            PauseGame();
+            score = 0;
             UpdateScore();
+            currentClicks = 0;
+            GenerateGameTable();
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -186,7 +199,7 @@ namespace Hamster
 
         private void UpdateScore()
         {
-            this.toolStripStatusLabel1.Text = $"Score: {score}";
+            this.scoreStatus.Text = $"Score: {score}";
         }
     }
 }

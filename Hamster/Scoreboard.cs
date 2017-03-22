@@ -51,5 +51,12 @@ namespace Hamster
             }
             LoadScoreboard();
         }
+
+        private void clearScoreboard_Click(object sender, EventArgs e)
+        {
+            scoreboardRows.Clear();
+            LoadScoreboard();
+            SaveScoreboardToFile();
+        }
     }
 }

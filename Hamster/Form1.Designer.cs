@@ -42,12 +42,15 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.scoreStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.scoreboardMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearScoreboard = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.scoreboardMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -84,6 +87,7 @@
             this.scoreboard.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.scoreboardName,
             this.scoreboardPoints});
+            this.scoreboard.ContextMenuStrip = this.scoreboardMenuStrip;
             this.scoreboard.GridLines = true;
             this.scoreboard.Location = new System.Drawing.Point(-1, 101);
             this.scoreboard.Name = "scoreboard";
@@ -194,6 +198,20 @@
             this.scoreStatus.Size = new System.Drawing.Size(48, 17);
             this.scoreStatus.Text = "Score: 0";
             // 
+            // scoreboardMenuStrip
+            // 
+            this.scoreboardMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearScoreboard});
+            this.scoreboardMenuStrip.Name = "scoreboardMenuStrip";
+            this.scoreboardMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // clearScoreboard
+            // 
+            this.clearScoreboard.Name = "clearScoreboard";
+            this.clearScoreboard.Size = new System.Drawing.Size(152, 22);
+            this.clearScoreboard.Text = "Clear";
+            this.clearScoreboard.Click += new System.EventHandler(this.clearScoreboard_Click);
+            // 
             // HamsterGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.scoreboardMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +253,8 @@
         private System.Windows.Forms.ListView scoreboard;
         private System.Windows.Forms.ColumnHeader scoreboardName;
         private System.Windows.Forms.ColumnHeader scoreboardPoints;
+        private System.Windows.Forms.ContextMenuStrip scoreboardMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem clearScoreboard;
     }
 }
 

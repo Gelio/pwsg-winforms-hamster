@@ -19,32 +19,15 @@ namespace Hamster
         private int currentClicks = 0;
         private int score = 0;
         private List<Button> activeButtons;
-        private Settings settings = new Settings();
+        private Settings settings;
 
         public Form1()
         {
+            settings = new Settings(rows, columns, maxActiveButtons, maxClicks);
             InitializeComponent();
             splitContainer1.BackColor = Color.Green;
             splitContainer1.Panel1.BackColor = DefaultBackColor;
             splitContainer1.Panel2.BackColor = DefaultBackColor;
-            settings.FormClosed += Settings_FormClosed;
-        }
-
-        private void Settings_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (settings.wasCancelled)
-                return;
-
-            PauseGame();
-            score = 0;
-            rows = settings.rows;
-            columns = settings.columns;
-            maxActiveButtons = settings.maxActiveButtons;
-            maxClicks = settings.maxClicks;
-            currentClicks = 0;
-            activeButtons = new List<Button>();
-            GenerateGame();
-            UpdateScore();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,7 +36,6 @@ namespace Hamster
             activeButtons = new List<Button>();
             UpdateTimerInterval();
             UpdateScore();
-            // gameTimer.Enabled = true;
         }
 
         private void GenerateGame()
@@ -166,6 +148,20 @@ namespace Hamster
         private void settingsButton_Click(object sender, EventArgs e)
         {
             settings.ShowDialog();
+
+            if (settings.DialogResult == DialogResult.Cancel)
+                return;
+
+            PauseGame();
+            score = 0;
+            rows = settings.rows;
+            columns = settings.columns;
+            maxActiveButtons = settings.maxActiveButtons;
+            maxClicks = settings.maxClicks;
+            currentClicks = 0;
+            activeButtons = new List<Button>();
+            GenerateGame();
+            UpdateScore();
         }
 
         private void startButton_Click(object sender, EventArgs e)

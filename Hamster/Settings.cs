@@ -16,15 +16,36 @@ namespace Hamster
         public int columns = 4;
         public int maxActiveButtons = 5;
         public int maxClicks = 20;
-        public bool wasCancelled = false;
 
-        public Settings()
+        public Settings(int _rows, int _columns, int _maxActiveButtons, int _maxClicks)
         {
+            rows = _rows;
+            columns = _columns;
+            maxActiveButtons = _maxActiveButtons;
+            maxClicks = _maxClicks;
+
             InitializeComponent();
-            RestoreSettings();
         }
 
         private void confirm_Click(object sender, EventArgs e)
+        {
+            SaveSettingsFromControls();
+            DialogResult = DialogResult.OK;
+        }
+
+        private void Settings_Shown(object sender, EventArgs e)
+        {
+            RestoreControlValuesFromSettings();
+        }
+
+        private void RestoreControlValuesFromSettings()
+        {
+            this.boardSize.SelectedItem = $"{rows} x {columns}";
+            this.activeButtons.Value = maxActiveButtons;
+            this.clicksToEnd.Value = maxClicks;
+        }
+
+        private void SaveSettingsFromControls()
         {
             string boardSize = this.boardSize.SelectedItem as string;
             string[] boardSizes = boardSize.Split('x');
@@ -32,48 +53,19 @@ namespace Hamster
             columns = int.Parse(boardSizes[1]);
             maxActiveButtons = (int)this.activeButtons.Value;
             maxClicks = (int)this.clicksToEnd.Value;
-            Close();
-            wasCancelled = false;
-        }
-
-        private void Settings_Shown(object sender, EventArgs e)
-        {
-            RestoreSettings();
-        }
-
-        private void RestoreSettings()
-        {
-            this.boardSize.SelectedItem = $"{rows} x {columns}";
-            this.activeButtons.Value = maxActiveButtons;
-            this.clicksToEnd.Value = maxClicks;
-        }
-
-        private void Settings_Load(object sender, EventArgs e)
-        {
-            RestoreSettings();
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            Close();
-            wasCancelled = true;
+            DialogResult = DialogResult.Cancel;
         }
 
-        private void cancel_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                cancel.PerformClick();
-        }
-
-        private void confirm_KeyDown(object sender, KeyEventArgs e)
+        private void Settings_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 confirm.PerformClick();
-        }
-
-        private void Settings_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            wasCancelled = true;
+            else if (e.KeyCode == Keys.Escape)
+                cancel.PerformClick();
         }
     }
 }

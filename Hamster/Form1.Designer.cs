@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.startButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.gameTable = new System.Windows.Forms.TableLayoutPanel();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.settingsButton = new System.Windows.Forms.Button();
-            this.startButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -69,6 +69,27 @@
             this.splitContainer1.SplitterDistance = 180;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(11, 72);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(73, 23);
+            this.startButton.TabIndex = 3;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.Location = new System.Drawing.Point(100, 72);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(75, 23);
+            this.settingsButton.TabIndex = 2;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // trackBar1
             // 
@@ -111,33 +132,12 @@
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.gameTable.Size = new System.Drawing.Size(307, 315);
+            this.gameTable.Size = new System.Drawing.Size(301, 315);
             this.gameTable.TabIndex = 0;
             // 
             // gameTimer
             // 
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsButton.Location = new System.Drawing.Point(100, 72);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(75, 23);
-            this.settingsButton.TabIndex = 2;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
-            // startButton
-            // 
-            this.startButton.Location = new System.Drawing.Point(11, 72);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(73, 23);
-            this.startButton.TabIndex = 3;
-            this.startButton.Text = "Start";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // statusStrip1
             // 

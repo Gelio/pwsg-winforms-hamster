@@ -113,7 +113,6 @@
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            this.cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cancel_KeyDown);
             // 
             // confirm
             // 
@@ -124,7 +123,6 @@
             this.confirm.Text = "OK";
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
-            this.confirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.confirm_KeyDown);
             // 
             // Settings
             // 
@@ -140,13 +138,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
             this.Text = "Settings";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_FormClosing);
-            this.Load += new System.EventHandler(this.Settings_Load);
             this.Shown += new System.EventHandler(this.Settings_Shown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Settings_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.activeButtons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clicksToEnd)).EndInit();
             this.ResumeLayout(false);

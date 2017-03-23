@@ -83,6 +83,11 @@
             // activeButtons
             // 
             this.activeButtons.Location = new System.Drawing.Point(150, 51);
+            this.activeButtons.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.activeButtons.Name = "activeButtons";
             this.activeButtons.Size = new System.Drawing.Size(120, 20);
             this.activeButtons.TabIndex = 4;

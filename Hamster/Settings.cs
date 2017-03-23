@@ -52,7 +52,14 @@ namespace Hamster
             rows = int.Parse(boardSizes[0]);
             columns = int.Parse(boardSizes[1]);
             maxActiveButtons = (int)this.activeButtons.Value;
+            if (maxActiveButtons <= 0)
+                maxActiveButtons = 1;
+            if (maxActiveButtons > rows * columns)
+                maxActiveButtons = rows * columns;
+
             maxClicks = (int)this.clicksToEnd.Value;
+            if (maxClicks <= 0)
+                maxClicks = 1;
         }
 
         private void cancel_Click(object sender, EventArgs e)

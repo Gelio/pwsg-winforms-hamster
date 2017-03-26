@@ -36,6 +36,9 @@
             this.clicksToEnd = new System.Windows.Forms.NumericUpDown();
             this.cancel = new System.Windows.Forms.Button();
             this.confirm = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonsRectangular = new System.Windows.Forms.RadioButton();
+            this.buttonsRound = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.activeButtons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clicksToEnd)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +114,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(115, 125);
+            this.cancel.Location = new System.Drawing.Point(115, 156);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 6;
@@ -121,7 +124,7 @@
             // 
             // confirm
             // 
-            this.confirm.Location = new System.Drawing.Point(197, 125);
+            this.confirm.Location = new System.Drawing.Point(197, 156);
             this.confirm.Name = "confirm";
             this.confirm.Size = new System.Drawing.Size(75, 23);
             this.confirm.TabIndex = 7;
@@ -129,11 +132,45 @@
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Buttons shape:";
+            // 
+            // buttonsRectangular
+            // 
+            this.buttonsRectangular.AutoSize = true;
+            this.buttonsRectangular.Checked = true;
+            this.buttonsRectangular.Location = new System.Drawing.Point(107, 127);
+            this.buttonsRectangular.Name = "buttonsRectangular";
+            this.buttonsRectangular.Size = new System.Drawing.Size(83, 17);
+            this.buttonsRectangular.TabIndex = 9;
+            this.buttonsRectangular.TabStop = true;
+            this.buttonsRectangular.Text = "Rectangular";
+            this.buttonsRectangular.UseVisualStyleBackColor = true;
+            // 
+            // buttonsRound
+            // 
+            this.buttonsRound.AutoSize = true;
+            this.buttonsRound.Location = new System.Drawing.Point(197, 127);
+            this.buttonsRound.Name = "buttonsRound";
+            this.buttonsRound.Size = new System.Drawing.Size(61, 17);
+            this.buttonsRound.TabIndex = 10;
+            this.buttonsRound.Text = "Eliptical";
+            this.buttonsRound.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 160);
+            this.ClientSize = new System.Drawing.Size(284, 184);
+            this.Controls.Add(this.buttonsRound);
+            this.Controls.Add(this.buttonsRectangular);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.confirm);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.clicksToEnd);
@@ -170,5 +207,8 @@
         public System.Windows.Forms.ComboBox boardSize;
         public System.Windows.Forms.NumericUpDown activeButtons;
         public System.Windows.Forms.NumericUpDown clicksToEnd;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton buttonsRectangular;
+        private System.Windows.Forms.RadioButton buttonsRound;
     }
 }

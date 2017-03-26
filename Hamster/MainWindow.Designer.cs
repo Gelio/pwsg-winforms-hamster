@@ -207,7 +207,7 @@
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.gameTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.gameTable.Size = new System.Drawing.Size(300, 315);
+            this.gameTable.Size = new System.Drawing.Size(288, 315);
             this.gameTable.TabIndex = 0;
             // 
             // gameTimer

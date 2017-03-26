@@ -16,13 +16,15 @@ namespace Hamster
         public int columns = 4;
         public int maxActiveButtons = 5;
         public int maxClicks = 20;
+        public bool roundButtons = false;
 
-        public Settings(int _rows, int _columns, int _maxActiveButtons, int _maxClicks)
+        public Settings(int _rows, int _columns, int _maxActiveButtons, int _maxClicks, bool _roundButtons)
         {
             rows = _rows;
             columns = _columns;
             maxActiveButtons = _maxActiveButtons;
             maxClicks = _maxClicks;
+            roundButtons = _roundButtons;
 
             InitializeComponent();
         }
@@ -43,6 +45,8 @@ namespace Hamster
             this.boardSize.SelectedItem = $"{rows} x {columns}";
             this.activeButtons.Value = maxActiveButtons;
             this.clicksToEnd.Value = maxClicks;
+            this.buttonsRound.Checked = roundButtons;
+            this.buttonsRectangular.Checked = !roundButtons;
         }
 
         private void SaveSettingsFromControls()
@@ -60,6 +64,8 @@ namespace Hamster
             maxClicks = (int)this.clicksToEnd.Value;
             if (maxClicks <= 0)
                 maxClicks = 1;
+
+            roundButtons = buttonsRound.Checked;
         }
 
         private void cancel_Click(object sender, EventArgs e)
